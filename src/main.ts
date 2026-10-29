@@ -6,7 +6,7 @@ import { pipeline } from "node:stream/promises";
 import { createGunzip, createGzip } from "node:zlib";
 import { casar, chavesCanal, chavesDe, indexar, slug } from "./nome.ts";
 import { lerFuso, lerXmltv, escreverXmltv, validarXmltv, type CanalGuia, type CanalSaida, type Programa } from "./xmltv.ts";
-import { baixarPng, logoDeTexto, logosChannelplus, logosClaro, logosIptvOrg, type FontesLogo } from "./logos.ts";
+import { baixarPng, logoDeTexto, logosClaro, logosIptvOrg, type FontesLogo } from "./logos.ts";
 
 interface Alvo { numero: string; nome: string; guiaNoTif?: boolean; logo?: string }
 interface Config {
@@ -41,10 +41,9 @@ async function main() {
   // guias e índices de logo em paralelo; uma fonte fora do ar só reduz a cobertura (vai para o relatório)
   const falhas: string[] = [];
   const nota = <T>(nome: string, p: Promise<T>, vazio: T) => p.catch((e) => { falhas.push(`${nome}: ${e.message}`); return vazio; });
-  const [guias, cplus, claro, iptv] = await Promise.all([
+  const [guias, claro, iptv] = await Promise.all([
     Promise.all(cfg.guias.map((u) => nota(u, baixarGuia(u, (c) => chavesCanal(c).some((k) => procuradas.has(k)), de, ate),
       { canais: [], programas: new Map<string, Programa[]>() }))),
-    nota("logos Channel+", logosChannelplus(cfg.logos.channelplus), new Map<string, string>()),
     nota("logos Claro", logosClaro(cfg.logos.claro), new Map<string, string>()),
     nota("logos iptv-org", logosIptvOrg(cfg.logos.iptvOrg), new Map<string, string>()),
   ]);
@@ -58,7 +57,7 @@ async function main() {
 
   const saida: CanalSaida[] = [];
   const linhas: { id: string; fonte: string; numero: string; nome: string; guia: string; logo: string; guiaNoTif: boolean }[] = [];
-  // 8 canais por vez: o CDN das logos da Channel+ recusa uma rajada de 150 downloads (visto no Actions)
+  // 8 canais por vez, para não disparar 181 downloads de uma vez nos CDNs das logos
   let proximo = 0;
   await Promise.all(Array.from({ length: 8 }, async () => { while (proximo < alvos.length) await gerarCanal(alvos[proximo++]); }));
   async function gerarCanal(a: (typeof alvos)[number]) {
@@ -66,7 +65,7 @@ async function main() {
     const programas = achou ? guias[achou.fonte].programas.get(achou.canal.id)! : [];
     const guia = achou ? `${new URL(cfg.guias[achou.fonte]).pathname.split("/").pop()}: ${achou.canal.id}` : "";
     const candidatos: [string, string | undefined][] = [
-      ["config", a.logo], ["Channel+", a.fonte === "channelplus" ? cplus.get(a.nome) : undefined],
+      ["config", a.logo],
       ...a.chaves.flatMap((k): [string, string | undefined][] => [["Claro", claro.get(k)], ["iptv-org", iptv.get(k)], ["XMLTV", icones.get(k)?.icone]]),
     ];
     let png: Buffer | undefined, logo = "texto (gerada)";

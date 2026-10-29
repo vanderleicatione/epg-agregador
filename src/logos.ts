@@ -3,24 +3,16 @@ import sharp from "sharp";
 import { chave } from "./nome.ts";
 
 export interface FontesLogo {
-  channelplus: { url: string; corpo: unknown };
   claro: { grades: string; imagens: string };
   iptvOrg: { canais: string; logos: string };
 }
 
 const UA = { "User-Agent": "epg-agregador (+https://github.com/vanderleicatione)" };
 
-async function json(url: string, init?: RequestInit): Promise<any> {
-  const r = await fetch(url, { ...init, headers: { ...UA, ...init?.headers }, signal: AbortSignal.timeout(120_000) });
+async function json(url: string): Promise<any> {
+  const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(120_000) });
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
   return r.json();
-}
-
-/** Nome exato do canal na Channel+ -> logo (a mesma que a TV mostra no app da TCL). */
-export async function logosChannelplus(f: FontesLogo["channelplus"]): Promise<Map<string, string>> {
-  const r = await json(f.url, { method: "POST", body: JSON.stringify(f.corpo), headers: { "Content-Type": "application/json; charset=utf-8" } });
-  if (r.code !== 100000) throw new Error(`Channel+ respondeu ${r.code} ${r.msg}`);
-  return new Map((r.data as any[]).filter((c) => c.poster).map((c) => [c.channelName, c.poster]));
 }
 
 /** Chave -> logo SVG, juntando todas as grades da Claro (de-para-grade.json lista os grupos). */
