@@ -1,0 +1,22 @@
+{
+  "name": "epg-agregador",
+  "private": true,
+  "type": "module",
+  "description": "Gera guia.xml.gz (XMLTV) + logos PNG para os canais da antena e da TCL Channel+",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "gerar": "node src/main.ts",
+    "test": "tsc && node --test \"test/*.test.ts\""
+  },
+  "dependencies": {
+    "sax": "^1.6.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/sax": "^1.2.7",
+    "typescript": "^7.0.2"
+  }
+}
