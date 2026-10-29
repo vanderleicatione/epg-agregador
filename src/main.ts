@@ -58,7 +58,10 @@ async function main() {
 
   const saida: CanalSaida[] = [];
   const linhas: { id: string; fonte: string; numero: string; nome: string; guia: string; logo: string; guiaNoTif: boolean }[] = [];
-  await Promise.all(alvos.map(async (a) => {
+  // 8 canais por vez: o CDN das logos da Channel+ recusa uma rajada de 150 downloads (visto no Actions)
+  let proximo = 0;
+  await Promise.all(Array.from({ length: 8 }, async () => { while (proximo < alvos.length) await gerarCanal(alvos[proximo++]); }));
+  async function gerarCanal(a: (typeof alvos)[number]) {
     const achou = casar(a.chaves, indices);
     const programas = achou ? guias[achou.fonte].programas.get(achou.canal.id)! : [];
     const guia = achou ? `${new URL(cfg.guias[achou.fonte]).pathname.split("/").pop()}: ${achou.canal.id}` : "";
@@ -67,15 +70,18 @@ async function main() {
       ...a.chaves.flatMap((k): [string, string | undefined][] => [["Claro", claro.get(k)], ["iptv-org", iptv.get(k)], ["XMLTV", icones.get(k)?.icone]]),
     ];
     let png: Buffer | undefined, logo = "texto (gerada)";
-    for (const [fonte, url] of candidatos) {
+    const erros: string[] = [];
+    procura: for (const [fonte, url] of candidatos) {
       if (!url) continue;
-      try { png = await baixarPng(url); logo = `${fonte}: ${url}`; break; } catch { /* tenta a próxima fonte */ }
+      for (const _ of [1, 2]) // uma nova tentativa antes de passar para a próxima fonte
+        try { png = await baixarPng(url); logo = `${fonte}: ${url}`; break procura; } catch (e) { erros.push(`${fonte}: ${(e as Error).message}`); }
     }
+    if (!png && erros.length) logo += ` — falhou: ${[...new Set(erros)].join("; ")}`;
     await writeFile(`${SAIDA}/logos/${a.id}.png`, png ?? await logoDeTexto(a.nome));
     programas.sort((x, y) => x.inicio - y.inicio);
     saida.push({ id: a.id, nome: a.nome, icone: `${cfg.urlBase}logos/${a.id}.png`, programas });
     linhas.push({ id: a.id, fonte: a.fonte, numero: a.numero, nome: a.nome, guia, logo, guiaNoTif: !!a.guiaNoTif });
-  }));
+  }
   const ordem = new Map(alvos.map((a, i) => [a.id, i]));
   saida.sort((x, y) => ordem.get(x.id)! - ordem.get(y.id)!);
   linhas.sort((x, y) => ordem.get(x.id)! - ordem.get(y.id)!);
