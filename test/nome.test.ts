@@ -68,5 +68,5 @@ test("slug estável e sem colisão entre os canais-alvo", () => {
   assert.equal(slug("Bloomberg TV+"), "bloomberg-tv-mais");
   const ids = Object.entries(cfg.canais as Record<string, { nome: string }[]>).flatMap(([f, l]) => l.map((c) => `${f}.${slug(c.nome)}`));
   assert.equal(new Set(ids).size, ids.length);
-  assert.equal(ids.length, 181);
+  assert.equal(ids.length, 261);
 });
