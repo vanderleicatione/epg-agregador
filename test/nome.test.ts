@@ -33,7 +33,7 @@ test(".Globo HD casa com a Globo SP pelo apelido", () => {
 });
 
 test("o apelido vale mais que o nome: TV Cultura vai para a de SP, não para a da Pluto", () => {
-  assert.equal(casa("TV CULTURA HD"), "TV Cultura SP_local");
+  assert.equal(casa("CULTURA HD"), "TV Cultura SP_local");
   assert.equal(casa("TV Cultura"), "TV Cultura SP_local");
 });
 
@@ -68,5 +68,5 @@ test("slug estável e sem colisão entre os canais-alvo", () => {
   assert.equal(slug("Bloomberg TV+"), "bloomberg-tv-mais");
   const ids = Object.entries(cfg.canais as Record<string, { nome: string }[]>).flatMap(([f, l]) => l.map((c) => `${f}.${slug(c.nome)}`));
   assert.equal(new Set(ids).size, ids.length);
-  assert.equal(ids.length, 261);
+  assert.equal(ids.length, 262);
 });
