@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { casar, chave, chavesDe, indexar, slug } from "../src/nome.ts";
+import { casar, chave, chavesDe, indexar, slug, sugestoes } from "../src/nome.ts";
 
 const cfg = JSON.parse(readFileSync(new URL("../config.json", import.meta.url), "utf8"));
 
@@ -66,7 +66,16 @@ test("slug estável e sem colisão entre os canais-alvo", () => {
   assert.equal(slug(".Globo HD"), "globo-hd");
   assert.notEqual(slug("RBI HD"), slug("RBI SD"));
   assert.equal(slug("Bloomberg TV+"), "bloomberg-tv-mais");
-  const ids = Object.entries(cfg.canais as Record<string, { nome: string }[]>).flatMap(([f, l]) => l.map((c) => `${f}.${slug(c.nome)}`));
+  const mestra: { id: string; nome: string }[] = JSON.parse(readFileSync(new URL("../lista_mestra.json", import.meta.url), "utf8"));
+  for (const m of mestra) assert.equal(m.id, slug(m.nome)); // o id da lista mestra é o slug do agregador
+  const ids = [...Object.entries(cfg.canais as Record<string, { nome: string }[]>).flatMap(([f, l]) => l.map((c) => `${f}.${slug(c.nome)}`)),
+    ...mestra.map((m) => `opentv.${m.id}`)];
   assert.equal(new Set(ids).size, ids.length);
-  assert.equal(ids.length, 262);
+  assert.equal(ids.length, 182 + mestra.length);
+});
+
+test("sugestões só por aproximação, e só para o relatório", () => {
+  assert.deepEqual(sugestoes("espn 4", [guia]), []); // curto demais: nem ESPN 2 nem ESPN 3
+  assert.deepEqual(sugestoes("sabor arte", [guia]), ["sabor e arte"]);
+  assert.equal(casa("Sabor Arte"), undefined); // a sugestão não casa sozinha
 });

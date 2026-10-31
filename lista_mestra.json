@@ -1,0 +1,1193 @@
+[
+ {
+  "id": "a-e",
+  "nome": "A&E",
+  "apelidos": []
+ },
+ {
+  "id": "adult-swim",
+  "nome": "Adult Swim",
+  "apelidos": [
+   "Adult Swin"
+  ]
+ },
+ {
+  "id": "agromais",
+  "nome": "AgroMais",
+  "apelidos": [
+   "Agro+"
+  ]
+ },
+ {
+  "id": "amc",
+  "nome": "AMC",
+  "apelidos": []
+ },
+ {
+  "id": "animal-planet",
+  "nome": "Animal Planet",
+  "apelidos": []
+ },
+ {
+  "id": "apple-tv-1",
+  "nome": "Apple TV 1",
+  "apelidos": [
+   "Apple TV",
+   "Apple TV+ Sports",
+   "Apple TV+ Sports 1"
+  ]
+ },
+ {
+  "id": "apple-tv-2",
+  "nome": "Apple TV 2",
+  "apelidos": [
+   "Apple TV+ Sports 2"
+  ]
+ },
+ {
+  "id": "apple-tv-3",
+  "nome": "Apple TV 3",
+  "apelidos": [
+   "Apple TV+ Sports 3"
+  ]
+ },
+ {
+  "id": "apple-tv-4",
+  "nome": "Apple TV 4",
+  "apelidos": [
+   "Apple TV+ Sports 4"
+  ]
+ },
+ {
+  "id": "apple-tv-5",
+  "nome": "Apple TV 5",
+  "apelidos": [
+   "Apple TV+ Sports 5"
+  ]
+ },
+ {
+  "id": "apple-tv-6",
+  "nome": "Apple TV 6",
+  "apelidos": [
+   "Apple TV+ Sports 6"
+  ]
+ },
+ {
+  "id": "arte-1",
+  "nome": "Arte 1",
+  "apelidos": []
+ },
+ {
+  "id": "axn",
+  "nome": "AXN",
+  "apelidos": []
+ },
+ {
+  "id": "band-news",
+  "nome": "Band News",
+  "apelidos": [
+   "Bandnews"
+  ]
+ },
+ {
+  "id": "band-sports",
+  "nome": "Band Sports",
+  "apelidos": [
+   "Bandsports"
+  ]
+ },
+ {
+  "id": "bbc-world-news",
+  "nome": "BBC World News",
+  "apelidos": [
+   "BBC World"
+  ]
+ },
+ {
+  "id": "bis",
+  "nome": "BIS",
+  "apelidos": []
+ },
+ {
+  "id": "bloomberg-tv",
+  "nome": "Bloomberg TV",
+  "apelidos": [
+   "Bloomberg"
+  ]
+ },
+ {
+  "id": "bm-c",
+  "nome": "BM&C",
+  "apelidos": []
+ },
+ {
+  "id": "box-kids",
+  "nome": "Box Kids",
+  "apelidos": []
+ },
+ {
+  "id": "c3-tv",
+  "nome": "C3 TV",
+  "apelidos": []
+ },
+ {
+  "id": "canal-brasil",
+  "nome": "Canal Brasil",
+  "apelidos": []
+ },
+ {
+  "id": "canal-do-boi",
+  "nome": "Canal do Boi",
+  "apelidos": []
+ },
+ {
+  "id": "canal-do-criador",
+  "nome": "Canal do Criador",
+  "apelidos": []
+ },
+ {
+  "id": "canal-rural",
+  "nome": "Canal Rural",
+  "apelidos": []
+ },
+ {
+  "id": "canal-uol",
+  "nome": "Canal UOL",
+  "apelidos": [
+   "UOL"
+  ]
+ },
+ {
+  "id": "cartoon-network",
+  "nome": "Cartoon Network",
+  "apelidos": [
+   "Cartoon",
+   "Cartoon HD"
+  ]
+ },
+ {
+  "id": "cartoonito",
+  "nome": "Cartoonito",
+  "apelidos": []
+ },
+ {
+  "id": "cgtn",
+  "nome": "CGTN",
+  "apelidos": []
+ },
+ {
+  "id": "chef-tv",
+  "nome": "Chef TV",
+  "apelidos": []
+ },
+ {
+  "id": "cinemax",
+  "nome": "Cinemax",
+  "apelidos": []
+ },
+ {
+  "id": "cnn-brasil",
+  "nome": "CNN Brasil",
+  "apelidos": []
+ },
+ {
+  "id": "cnn-brasil-money",
+  "nome": "CNN Brasil Money",
+  "apelidos": [
+   "CNN Money"
+  ]
+ },
+ {
+  "id": "cnn-international",
+  "nome": "CNN International",
+  "apelidos": [
+   "CNNi",
+   "CNN Internacional"
+  ]
+ },
+ {
+  "id": "cnt",
+  "nome": "CNT",
+  "apelidos": []
+ },
+ {
+  "id": "combate",
+  "nome": "Combate",
+  "apelidos": []
+ },
+ {
+  "id": "comedy-central",
+  "nome": "Comedy Central",
+  "apelidos": []
+ },
+ {
+  "id": "curta",
+  "nome": "Curta!",
+  "apelidos": [
+   "Curta"
+  ]
+ },
+ {
+  "id": "dazn-1",
+  "nome": "DAZN 1",
+  "apelidos": [
+   "DAZN"
+  ]
+ },
+ {
+  "id": "dazn-2",
+  "nome": "DAZN 2",
+  "apelidos": []
+ },
+ {
+  "id": "dazn-3",
+  "nome": "DAZN 3",
+  "apelidos": []
+ },
+ {
+  "id": "dazn-4",
+  "nome": "DAZN 4",
+  "apelidos": []
+ },
+ {
+  "id": "dazn-5",
+  "nome": "DAZN 5",
+  "apelidos": []
+ },
+ {
+  "id": "dazn-6",
+  "nome": "DAZN 6",
+  "apelidos": []
+ },
+ {
+  "id": "discovery",
+  "nome": "Discovery",
+  "apelidos": []
+ },
+ {
+  "id": "discovery-home-health",
+  "nome": "Discovery Home & Health",
+  "apelidos": [
+   "Discovery H&H",
+   "Discovery Home and Health",
+   "Discovery Home Health"
+  ]
+ },
+ {
+  "id": "discovery-kids",
+  "nome": "Discovery Kids",
+  "apelidos": []
+ },
+ {
+  "id": "discovery-science",
+  "nome": "Discovery Science",
+  "apelidos": []
+ },
+ {
+  "id": "discovery-theater",
+  "nome": "Discovery Theater",
+  "apelidos": []
+ },
+ {
+  "id": "discovery-turbo",
+  "nome": "Discovery Turbo",
+  "apelidos": []
+ },
+ {
+  "id": "discovery-world",
+  "nome": "Discovery World",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-1",
+  "nome": "Disney+ 1",
+  "apelidos": [
+   "Disney+"
+  ]
+ },
+ {
+  "id": "disney-mais-2",
+  "nome": "Disney+ 2",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-3",
+  "nome": "Disney+ 3",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-4",
+  "nome": "Disney+ 4",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-5",
+  "nome": "Disney+ 5",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-6",
+  "nome": "Disney+ 6",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-7",
+  "nome": "Disney+ 7",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-8",
+  "nome": "Disney+ 8",
+  "apelidos": []
+ },
+ {
+  "id": "disney-mais-9",
+  "nome": "Disney+ 9",
+  "apelidos": []
+ },
+ {
+  "id": "dog-tv",
+  "nome": "Dog TV",
+  "apelidos": []
+ },
+ {
+  "id": "dreamworks",
+  "nome": "Dreamworks",
+  "apelidos": []
+ },
+ {
+  "id": "dumdum",
+  "nome": "DumDum",
+  "apelidos": []
+ },
+ {
+  "id": "dw-tv",
+  "nome": "DW-TV",
+  "apelidos": [
+   "DW - Latino America",
+   "DW"
+  ]
+ },
+ {
+  "id": "e",
+  "nome": "E!",
+  "apelidos": []
+ },
+ {
+  "id": "espn",
+  "nome": "ESPN",
+  "apelidos": []
+ },
+ {
+  "id": "espn-2",
+  "nome": "ESPN 2",
+  "apelidos": []
+ },
+ {
+  "id": "espn-3",
+  "nome": "ESPN 3",
+  "apelidos": []
+ },
+ {
+  "id": "espn-4",
+  "nome": "ESPN 4",
+  "apelidos": []
+ },
+ {
+  "id": "espn-5",
+  "nome": "ESPN 5",
+  "apelidos": []
+ },
+ {
+  "id": "espn-6",
+  "nome": "ESPN 6",
+  "apelidos": []
+ },
+ {
+  "id": "eurochannel",
+  "nome": "Eurochannel",
+  "apelidos": [
+   "Euro Channel"
+  ]
+ },
+ {
+  "id": "fashiontv",
+  "nome": "FashionTV",
+  "apelidos": [
+   "Fashion TV"
+  ]
+ },
+ {
+  "id": "film-arts",
+  "nome": "Film & Arts",
+  "apelidos": []
+ },
+ {
+  "id": "fish-tv",
+  "nome": "Fish TV",
+  "apelidos": []
+ },
+ {
+  "id": "fonte-tv",
+  "nome": "Fonte TV",
+  "apelidos": []
+ },
+ {
+  "id": "food-network",
+  "nome": "Food Network",
+  "apelidos": []
+ },
+ {
+  "id": "fox-news",
+  "nome": "Fox News",
+  "apelidos": []
+ },
+ {
+  "id": "fuel-tv",
+  "nome": "Fuel TV",
+  "apelidos": []
+ },
+ {
+  "id": "futura",
+  "nome": "Futura",
+  "apelidos": []
+ },
+ {
+  "id": "ge-tv",
+  "nome": "GE TV",
+  "apelidos": [
+   "GE"
+  ]
+ },
+ {
+  "id": "globonews",
+  "nome": "GloboNews",
+  "apelidos": [
+   "Globo News"
+  ]
+ },
+ {
+  "id": "globoplay-novelas",
+  "nome": "Globoplay Novelas",
+  "apelidos": []
+ },
+ {
+  "id": "gloob",
+  "nome": "Gloob",
+  "apelidos": []
+ },
+ {
+  "id": "gloobinho",
+  "nome": "Gloobinho",
+  "apelidos": []
+ },
+ {
+  "id": "gnt",
+  "nome": "GNT",
+  "apelidos": []
+ },
+ {
+  "id": "hbo",
+  "nome": "HBO",
+  "apelidos": []
+ },
+ {
+  "id": "hbo-family",
+  "nome": "HBO Family",
+  "apelidos": []
+ },
+ {
+  "id": "hbo-mundi",
+  "nome": "HBO Mundi",
+  "apelidos": []
+ },
+ {
+  "id": "hbo-plus",
+  "nome": "HBO Plus",
+  "apelidos": []
+ },
+ {
+  "id": "hbo-pop",
+  "nome": "HBO Pop",
+  "apelidos": []
+ },
+ {
+  "id": "hbo-signature",
+  "nome": "HBO Signature",
+  "apelidos": []
+ },
+ {
+  "id": "hbo-xtreme",
+  "nome": "HBO Xtreme",
+  "apelidos": []
+ },
+ {
+  "id": "hbo2",
+  "nome": "HBO2",
+  "apelidos": []
+ },
+ {
+  "id": "hgtv",
+  "nome": "HGTV",
+  "apelidos": []
+ },
+ {
+  "id": "history",
+  "nome": "History",
+  "apelidos": []
+ },
+ {
+  "id": "history-2",
+  "nome": "History 2",
+  "apelidos": [
+   "H2"
+  ]
+ },
+ {
+  "id": "id",
+  "nome": "ID",
+  "apelidos": [
+   "Investigação Discovery",
+   "ID Investigacao Discovery",
+   "Discovery ID"
+  ]
+ },
+ {
+  "id": "lifetime",
+  "nome": "Lifetime",
+  "apelidos": []
+ },
+ {
+  "id": "like",
+  "nome": "Like",
+  "apelidos": []
+ },
+ {
+  "id": "lmc-mais",
+  "nome": "LMC+",
+  "apelidos": []
+ },
+ {
+  "id": "markket",
+  "nome": "Markket",
+  "apelidos": []
+ },
+ {
+  "id": "max-1",
+  "nome": "Max 1",
+  "apelidos": [
+   "Max",
+   "HBO Max",
+   "HBO Max Sports",
+   "HBO Max 1",
+   "HBO Max Sports 1"
+  ]
+ },
+ {
+  "id": "max-10",
+  "nome": "Max 10",
+  "apelidos": [
+   "HBO Max 10",
+   "HBO Max Sports 10"
+  ]
+ },
+ {
+  "id": "max-11",
+  "nome": "Max 11",
+  "apelidos": [
+   "HBO Max 11",
+   "HBO Max Sports 11"
+  ]
+ },
+ {
+  "id": "max-12",
+  "nome": "Max 12",
+  "apelidos": [
+   "HBO Max 12",
+   "HBO Max Sports 12"
+  ]
+ },
+ {
+  "id": "max-13",
+  "nome": "Max 13",
+  "apelidos": [
+   "HBO Max 13",
+   "HBO Max Sports 13"
+  ]
+ },
+ {
+  "id": "max-14",
+  "nome": "Max 14",
+  "apelidos": [
+   "HBO Max 14",
+   "HBO Max Sports 14"
+  ]
+ },
+ {
+  "id": "max-15",
+  "nome": "Max 15",
+  "apelidos": [
+   "HBO Max 15",
+   "HBO Max Sports 15"
+  ]
+ },
+ {
+  "id": "max-16",
+  "nome": "Max 16",
+  "apelidos": [
+   "HBO Max 16",
+   "HBO Max Sports 16"
+  ]
+ },
+ {
+  "id": "max-17",
+  "nome": "Max 17",
+  "apelidos": [
+   "HBO Max 17",
+   "HBO Max Sports 17"
+  ]
+ },
+ {
+  "id": "max-18",
+  "nome": "Max 18",
+  "apelidos": [
+   "HBO Max 18",
+   "HBO Max Sports 18"
+  ]
+ },
+ {
+  "id": "max-2",
+  "nome": "Max 2",
+  "apelidos": [
+   "HBO Max 2",
+   "HBO Max Sports 2"
+  ]
+ },
+ {
+  "id": "max-3",
+  "nome": "Max 3",
+  "apelidos": [
+   "HBO Max 3",
+   "HBO Max Sports 3"
+  ]
+ },
+ {
+  "id": "max-4",
+  "nome": "Max 4",
+  "apelidos": [
+   "HBO Max 4",
+   "HBO Max Sports 4"
+  ]
+ },
+ {
+  "id": "max-5",
+  "nome": "Max 5",
+  "apelidos": [
+   "HBO Max 5",
+   "HBO Max Sports 5"
+  ]
+ },
+ {
+  "id": "max-6",
+  "nome": "Max 6",
+  "apelidos": [
+   "HBO Max 6",
+   "HBO Max Sports 6"
+  ]
+ },
+ {
+  "id": "max-7",
+  "nome": "Max 7",
+  "apelidos": [
+   "HBO Max 7",
+   "HBO Max Sports 7"
+  ]
+ },
+ {
+  "id": "max-8",
+  "nome": "Max 8",
+  "apelidos": [
+   "HBO Max 8",
+   "HBO Max Sports 8"
+  ]
+ },
+ {
+  "id": "max-9",
+  "nome": "Max 9",
+  "apelidos": [
+   "HBO Max 9",
+   "HBO Max Sports 9"
+  ]
+ },
+ {
+  "id": "megapix",
+  "nome": "Megapix",
+  "apelidos": [
+   "Mega Pix"
+  ]
+ },
+ {
+  "id": "mezzo",
+  "nome": "Mezzo",
+  "apelidos": []
+ },
+ {
+  "id": "modo-viagem",
+  "nome": "Modo Viagem",
+  "apelidos": []
+ },
+ {
+  "id": "mtv",
+  "nome": "MTV",
+  "apelidos": []
+ },
+ {
+  "id": "multishow",
+  "nome": "Multishow",
+  "apelidos": []
+ },
+ {
+  "id": "music-box-brazil",
+  "nome": "Music Box Brazil",
+  "apelidos": []
+ },
+ {
+  "id": "nhk",
+  "nome": "NHK",
+  "apelidos": []
+ },
+ {
+  "id": "nick-jr",
+  "nome": "Nick Jr.",
+  "apelidos": []
+ },
+ {
+  "id": "nickelodeon",
+  "nome": "Nickelodeon",
+  "apelidos": []
+ },
+ {
+  "id": "nosso-futebol",
+  "nome": "Nosso Futebol",
+  "apelidos": []
+ },
+ {
+  "id": "nsports",
+  "nome": "NSports",
+  "apelidos": []
+ },
+ {
+  "id": "off",
+  "nome": "OFF",
+  "apelidos": []
+ },
+ {
+  "id": "paramount-network",
+  "nome": "Paramount Network",
+  "apelidos": []
+ },
+ {
+  "id": "paramount-mais-1",
+  "nome": "Paramount+ 1",
+  "apelidos": [
+   "Paramount+ Sports 1"
+  ]
+ },
+ {
+  "id": "paramount-mais-2",
+  "nome": "Paramount+ 2",
+  "apelidos": [
+   "Paramount+ Sports 2"
+  ]
+ },
+ {
+  "id": "paramount-mais-3",
+  "nome": "Paramount+ 3",
+  "apelidos": [
+   "Paramount+ Sports 3"
+  ]
+ },
+ {
+  "id": "paramount-mais-4",
+  "nome": "Paramount+ 4",
+  "apelidos": [
+   "Paramount+ Sports 4"
+  ]
+ },
+ {
+  "id": "polishop",
+  "nome": "Polishop",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-2",
+  "nome": "Premiere 2",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-3",
+  "nome": "Premiere 3",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-4",
+  "nome": "Premiere 4",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-5",
+  "nome": "Premiere 5",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-6",
+  "nome": "Premiere 6",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-7",
+  "nome": "Premiere 7",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-8",
+  "nome": "Premiere 8",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-9",
+  "nome": "Premiere 9",
+  "apelidos": []
+ },
+ {
+  "id": "premiere-clubes",
+  "nome": "Premiere Clubes",
+  "apelidos": [
+   "Premier Clubes",
+   "Premiere",
+   "Premiere 1"
+  ]
+ },
+ {
+  "id": "prime-1",
+  "nome": "Prime 1",
+  "apelidos": [
+   "Prime",
+   "Amazon Prime",
+   "Amazon Prime Video Sports",
+   "Amazon Prime 1",
+   "Amazon Prime Video Sports 1"
+  ]
+ },
+ {
+  "id": "prime-2",
+  "nome": "Prime 2",
+  "apelidos": [
+   "Amazon Prime 2",
+   "Amazon Prime Video Sports 2"
+  ]
+ },
+ {
+  "id": "prime-3",
+  "nome": "Prime 3",
+  "apelidos": [
+   "Amazon Prime 3",
+   "Amazon Prime Video Sports 3"
+  ]
+ },
+ {
+  "id": "prime-4",
+  "nome": "Prime 4",
+  "apelidos": [
+   "Amazon Prime 4",
+   "Amazon Prime Video Sports 4"
+  ]
+ },
+ {
+  "id": "prime-5",
+  "nome": "Prime 5",
+  "apelidos": [
+   "Amazon Prime 5",
+   "Amazon Prime Video Sports 5"
+  ]
+ },
+ {
+  "id": "prime-box-brazil",
+  "nome": "Prime Box Brazil",
+  "apelidos": []
+ },
+ {
+  "id": "rai-international",
+  "nome": "RAI International",
+  "apelidos": [
+   "RAI Internacional",
+   "RAI"
+  ]
+ },
+ {
+  "id": "rb-news",
+  "nome": "RB News",
+  "apelidos": []
+ },
+ {
+  "id": "rbtv",
+  "nome": "RBTV",
+  "apelidos": []
+ },
+ {
+  "id": "rede-gospel",
+  "nome": "Rede Gospel",
+  "apelidos": []
+ },
+ {
+  "id": "sabor-arte",
+  "nome": "Sabor & Arte",
+  "apelidos": []
+ },
+ {
+  "id": "sbt-news",
+  "nome": "SBT News",
+  "apelidos": []
+ },
+ {
+  "id": "sony-channel",
+  "nome": "Sony Channel",
+  "apelidos": [
+   "Sony"
+  ]
+ },
+ {
+  "id": "sony-movies",
+  "nome": "Sony Movies",
+  "apelidos": []
+ },
+ {
+  "id": "space",
+  "nome": "Space",
+  "apelidos": []
+ },
+ {
+  "id": "sportv",
+  "nome": "SporTV",
+  "apelidos": []
+ },
+ {
+  "id": "sportv-2",
+  "nome": "SporTV 2",
+  "apelidos": []
+ },
+ {
+  "id": "sportv-3",
+  "nome": "SporTV 3",
+  "apelidos": []
+ },
+ {
+  "id": "sportv-4",
+  "nome": "SporTV 4",
+  "apelidos": []
+ },
+ {
+  "id": "sportynet",
+  "nome": "SportyNet",
+  "apelidos": []
+ },
+ {
+  "id": "sportynet-mais-1",
+  "nome": "SportyNet + 1",
+  "apelidos": [
+   "SportyNet +",
+   "Sportynet 1"
+  ]
+ },
+ {
+  "id": "sportynet-mais-2",
+  "nome": "SportyNet + 2",
+  "apelidos": [
+   "Sportynet 2"
+  ]
+ },
+ {
+  "id": "sportynet-mais-3",
+  "nome": "SportyNet + 3",
+  "apelidos": [
+   "Sportynet 3"
+  ]
+ },
+ {
+  "id": "studio-universal",
+  "nome": "Studio Universal",
+  "apelidos": []
+ },
+ {
+  "id": "tbc",
+  "nome": "TBC",
+  "apelidos": []
+ },
+ {
+  "id": "tcm",
+  "nome": "TCM",
+  "apelidos": [
+   "TCM BR"
+  ]
+ },
+ {
+  "id": "telecine-action",
+  "nome": "Telecine Action",
+  "apelidos": [
+   "TC Action"
+  ]
+ },
+ {
+  "id": "telecine-cult",
+  "nome": "Telecine Cult",
+  "apelidos": []
+ },
+ {
+  "id": "telecine-fun",
+  "nome": "Telecine Fun",
+  "apelidos": []
+ },
+ {
+  "id": "telecine-pipoca",
+  "nome": "Telecine Pipoca",
+  "apelidos": [
+   "TC Pipoca"
+  ]
+ },
+ {
+  "id": "telecine-premium",
+  "nome": "Telecine Premium",
+  "apelidos": [
+   "TC Premiun",
+   "TC Premium",
+   "Telecine"
+  ]
+ },
+ {
+  "id": "telecine-touch",
+  "nome": "Telecine Touch",
+  "apelidos": []
+ },
+ {
+  "id": "terra-viva",
+  "nome": "Terra Viva",
+  "apelidos": []
+ },
+ {
+  "id": "times-exclusivo-cnbc",
+  "nome": "Times Exclusivo CNBC",
+  "apelidos": [
+   "TIMES | Exclusivo CNBC",
+   "CNBC"
+  ]
+ },
+ {
+  "id": "tlc",
+  "nome": "TLC",
+  "apelidos": []
+ },
+ {
+  "id": "tnt",
+  "nome": "TNT",
+  "apelidos": []
+ },
+ {
+  "id": "tnt-novelas",
+  "nome": "TNT Novelas",
+  "apelidos": []
+ },
+ {
+  "id": "tnt-series",
+  "nome": "TNT Séries",
+  "apelidos": []
+ },
+ {
+  "id": "tooncast",
+  "nome": "Tooncast",
+  "apelidos": []
+ },
+ {
+  "id": "trace-brasil",
+  "nome": "Trace Brasil",
+  "apelidos": []
+ },
+ {
+  "id": "travel-food-and-drinks",
+  "nome": "Travel & Food and Drinks",
+  "apelidos": []
+ },
+ {
+  "id": "travel-box-brazil",
+  "nome": "Travel Box Brazil",
+  "apelidos": [
+   "Travel Box"
+  ]
+ },
+ {
+  "id": "trip-brasil-channel",
+  "nome": "Trip Brasil Channel",
+  "apelidos": []
+ },
+ {
+  "id": "tv-evangelizar",
+  "nome": "TV Evangelizar",
+  "apelidos": []
+ },
+ {
+  "id": "tv-pai-eterno",
+  "nome": "TV Pai Eterno",
+  "apelidos": []
+ },
+ {
+  "id": "tv-ra-tim-bum",
+  "nome": "TV RÁ Tim Bum",
+  "apelidos": []
+ },
+ {
+  "id": "tv5monde",
+  "nome": "TV5Monde",
+  "apelidos": [
+   "TV5 Monde"
+  ]
+ },
+ {
+  "id": "tve-international",
+  "nome": "TVE International",
+  "apelidos": [
+   "TVE"
+  ]
+ },
+ {
+  "id": "universal-premiere",
+  "nome": "Universal Premiere",
+  "apelidos": []
+ },
+ {
+  "id": "universal-reality",
+  "nome": "Universal Reality",
+  "apelidos": []
+ },
+ {
+  "id": "universal-tv",
+  "nome": "Universal TV",
+  "apelidos": []
+ },
+ {
+  "id": "usa",
+  "nome": "USA",
+  "apelidos": []
+ },
+ {
+  "id": "warner-channel",
+  "nome": "Warner Channel",
+  "apelidos": [
+   "Warner",
+   "Warner TV"
+  ]
+ },
+ {
+  "id": "woohoo",
+  "nome": "Woohoo",
+  "apelidos": []
+ }
+]

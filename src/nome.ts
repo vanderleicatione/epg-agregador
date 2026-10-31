@@ -41,3 +41,23 @@ export function casar<C>(chaves: string[], indices: Map<string, C>[]): { fonte: 
       if (canal) return { fonte, canal };
     }
 }
+
+function distancia(a: string, b: string): number {
+  let ant = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(ant[j] + 1, cur[j - 1] + 1, ant[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    ant = cur;
+  }
+  return ant[b.length];
+}
+
+/** Até 3 chaves dos guias parecidas com `k` (distância até 1/3 do tamanho, mesmos números), para o relatório. Nunca usadas para casar. */
+export function sugestoes(k: string, indices: Map<string, unknown>[]): string[] {
+  const limite = Math.floor(k.length / 3);
+  if (!limite) return [];
+  const num = (x: string) => x.replace(/\D/g, ""); // ESPN 4 nunca sugere ESPN 2
+  const todas = new Set(indices.flatMap((i) => [...i.keys()]).filter((c) => num(c) === num(k)));
+  return [...todas].map((c) => [c, distancia(k, c)] as const).filter(([, d]) => d <= limite)
+    .sort((x, y) => x[1] - y[1]).slice(0, 3).map(([c]) => c);
+}

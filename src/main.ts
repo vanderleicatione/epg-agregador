@@ -4,15 +4,17 @@ import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { createGunzip, createGzip } from "node:zlib";
-import { casar, chavesCanal, chavesDe, indexar, slug } from "./nome.ts";
+import { casar, chave, chavesCanal, chavesDe, indexar, slug, sugestoes } from "./nome.ts";
 import { lerFuso, lerXmltv, escreverXmltv, validarXmltv, type CanalGuia, type CanalSaida, type Programa } from "./xmltv.ts";
 import { baixarPng, logoDeTexto, logosClaro, logosIptvOrg, type FontesLogo } from "./logos.ts";
 
 interface Alvo { numero: string; nome: string; guiaNoTif?: boolean; logo?: string }
+/** Canal da lista mestra do Canais+ (canais-plus/tools/gerar_lista_mestra.mjs copia o arquivo para cá). */
+interface Mestre { id: string; nome: string; apelidos: string[] }
 interface Config {
   urlBase: string; fuso: string; janela: { diasAntes: number; diasDepois: number };
   guias: string[]; logos: FontesLogo; apelidos: Record<string, string[]>;
-  canais: Record<string, Alvo[]>;
+  canais: Record<string, Alvo[]>; listaMestra: string; logosExtras: Record<string, string>;
 }
 
 const SAIDA = "public";
@@ -32,8 +34,16 @@ async function main() {
   const hoje = Math.floor((Date.now() + fuso * 60000) / DIA) * DIA - fuso * 60000; // 00:00 de hoje no fuso
   const de = hoje - cfg.janela.diasAntes * DIA, ate = hoje + (cfg.janela.diasDepois + 1) * DIA;
 
-  const alvos = Object.entries(cfg.canais).flatMap(([fonte, l]) =>
-    l.map((c) => ({ ...c, fonte, id: `${fonte}.${slug(c.nome)}`, chaves: chavesDe(c.nome, cfg.apelidos) })));
+  const mestra: Mestre[] = JSON.parse(await readFile(cfg.listaMestra, "utf8"));
+  // a lista mestra inteira entra como fonte "opentv" (item 27: nada de lista fixa tirada da TV); os apelidos dela
+  // vêm depois do nome (são grafias dos addons) e também vão no feed, para o Live TV casar por eles
+  const alvos = [
+    ...Object.entries(cfg.canais).flatMap(([fonte, l]) =>
+      l.map((c) => ({ ...c, fonte, apelidos: [] as string[], id: `${fonte}.${slug(c.nome)}`, chaves: chavesDe(c.nome, cfg.apelidos) }))),
+    ...mestra.map((m) => ({ numero: "", nome: m.nome, guiaNoTif: false, logo: undefined as string | undefined, fonte: "opentv",
+      apelidos: m.apelidos, id: `opentv.${m.id}`, chaves: [...new Set([...chavesDe(m.nome, cfg.apelidos), ...m.apelidos.map(chave)])].filter(Boolean) })),
+  ];
+  const extras = new Map(Object.entries(cfg.logosExtras).map(([n, u]) => [chave(n), u]));
   const repetido = alvos.find((a, i) => alvos.findIndex((b) => b.id === a.id) !== i);
   if (repetido) throw new Error(`id repetido: ${repetido.id}`);
   const procuradas = new Set(alvos.flatMap((a) => a.chaves));
@@ -56,7 +66,7 @@ async function main() {
   await mkdir(`${SAIDA}/logos`, { recursive: true });
 
   const saida: CanalSaida[] = [];
-  const linhas: { id: string; fonte: string; numero: string; nome: string; guia: string; logo: string; guiaNoTif: boolean }[] = [];
+  const linhas: { id: string; fonte: string; numero: string; nome: string; guia: string; logo: string; guiaNoTif: boolean; sugestoes: string[] }[] = [];
   // 8 canais por vez, para não disparar 181 downloads de uma vez nos CDNs das logos
   let proximo = 0;
   await Promise.all(Array.from({ length: 8 }, async () => { while (proximo < alvos.length) await gerarCanal(alvos[proximo++]); }));
@@ -66,7 +76,7 @@ async function main() {
     const guia = achou ? `${new URL(cfg.guias[achou.fonte]).pathname.split("/").pop()}: ${achou.canal.id}` : "";
     const candidatos: [string, string | undefined][] = [
       ["config", a.logo],
-      ...a.chaves.flatMap((k): [string, string | undefined][] => [["Claro", claro.get(k)], ["iptv-org", iptv.get(k)], ["XMLTV", icones.get(k)?.icone]]),
+      ...a.chaves.flatMap((k): [string, string | undefined][] => [["config", extras.get(k)], ["Claro", claro.get(k)], ["iptv-org", iptv.get(k)], ["XMLTV", icones.get(k)?.icone]]),
     ];
     let png: Buffer | undefined, logo = "texto (gerada)";
     const erros: string[] = [];
@@ -78,8 +88,9 @@ async function main() {
     if (!png && erros.length) logo += ` — falhou: ${[...new Set(erros)].join("; ")}`;
     await writeFile(`${SAIDA}/logos/${a.id}.png`, png ?? await logoDeTexto(a.nome));
     programas.sort((x, y) => x.inicio - y.inicio);
-    saida.push({ id: a.id, nome: a.nome, icone: `${cfg.urlBase}logos/${a.id}.png`, programas });
-    linhas.push({ id: a.id, fonte: a.fonte, numero: a.numero, nome: a.nome, guia, logo, guiaNoTif: !!a.guiaNoTif });
+    saida.push({ id: a.id, nome: a.nome, apelidos: a.apelidos, icone: `${cfg.urlBase}logos/${a.id}.png`, programas });
+    linhas.push({ id: a.id, fonte: a.fonte, numero: a.numero, nome: a.nome, guia, logo, guiaNoTif: !!a.guiaNoTif,
+      sugestoes: achou ? [] : sugestoes(chave(a.nome), indices) });
   }
   const ordem = new Map(alvos.map((a, i) => [a.id, i]));
   saida.sort((x, y) => ordem.get(x.id)! - ordem.get(y.id)!);
@@ -95,7 +106,7 @@ async function main() {
   console.log(`${linhas.length} canais; sem guia (TIF também não tem): ${semGuia}; logo gerada por texto: ${semLogo}; falhas: ${falhas.length}`);
 }
 
-function relatorio(linhas: { fonte: string; numero: string; nome: string; guia: string; logo: string; guiaNoTif: boolean }[],
+function relatorio(linhas: { fonte: string; numero: string; nome: string; guia: string; logo: string; guiaNoTif: boolean; sugestoes: string[] }[],
   falhas: string[], bytes: number, de: number, ate: number, saida: CanalSaida[]): string {
   const tab = (l: typeof linhas) => l.length ? "| Fonte | Número | Nome |\n|---|---|---|\n" + l.map((x) => `| ${x.fonte} | ${x.numero} | ${x.nome} |`).join("\n") : "Nenhum.";
   const semGuia = linhas.filter((l) => !l.guia && !l.guiaNoTif);
@@ -122,6 +133,13 @@ ${falhas.length ? falhas.map((f) => `- ${f}`).join("\n") : "Nenhuma."}
 ## Sem guia em lugar nenhum
 
 ${tab(semGuia)}
+
+## Sugestões por aproximação para os sem guia (só para aprovar)
+
+Nada disto entra sozinho. Para aprovar, ponha o nome do guia como apelido do canal em \`apelidos\` do \`config.json\`.
+
+${semGuia.some((l) => l.sugestoes.length) ? "| Fonte | Nome | Sugestões (chave no guia) |\n|---|---|---|\n" +
+  semGuia.filter((l) => l.sugestoes.length).map((l) => `| ${l.fonte} | ${l.nome} | ${l.sugestoes.join(", ")} |`).join("\n") : "Nenhuma."}
 
 ## Logo gerada com o nome
 

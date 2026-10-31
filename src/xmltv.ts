@@ -4,7 +4,7 @@ import type { Readable } from "node:stream";
 
 export interface Programa { inicio: number; fim: number; titulo: string; desc?: string; categoria?: string }
 export interface CanalGuia { id: string; nomes: string[]; icone?: string }
-export interface CanalSaida { id: string; nome: string; icone: string; programas: Programa[] }
+export interface CanalSaida { id: string; nome: string; apelidos?: string[]; icone: string; programas: Programa[] }
 
 const HORA = /^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)?(?:\s*([+-])(\d\d):?(\d\d))?$/;
 
@@ -86,7 +86,8 @@ const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 export function* escreverXmltv(canais: CanalSaida[], fusoMin: number, gerador: string): Generator<string> {
   yield `<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE tv SYSTEM "xmltv.dtd">\n<tv generator-info-name="${esc(gerador)}">\n`;
   for (const c of canais)
-    yield `<channel id="${esc(c.id)}"><display-name lang="pt">${esc(c.nome)}</display-name><icon src="${esc(c.icone)}"/></channel>\n`;
+    yield `<channel id="${esc(c.id)}">${[c.nome, ...c.apelidos ?? []].map((n) => `<display-name lang="pt">${esc(n)}</display-name>`).join("")}` +
+      `<icon src="${esc(c.icone)}"/></channel>\n`;
   for (const c of canais)
     for (const p of c.programas) {
       yield `<programme start="${escreverHora(p.inicio, fusoMin)}" stop="${escreverHora(p.fim, fusoMin)}" channel="${esc(c.id)}">` +
