@@ -61,3 +61,10 @@ export function sugestoes(k: string, indices: Map<string, unknown>[]): string[] 
   return [...todas].map((c) => [c, distancia(k, c)] as const).filter(([, d]) => d <= limite)
     .sort((x, y) => x[1] - y[1]).slice(0, 3).map(([c]) => c);
 }
+
+/** Chaves da família de um canal numerado, para a logo: "max 10" -> ["max 1", "max"]; sem número, nenhuma. */
+export function familia(k: string): string[] {
+  const m = /^(.+?) ?(\d+)$/.exec(k);
+  if (!m) return [];
+  return [...new Set([`${m[1]} 1`, m[1].trim()])].filter((f) => f !== k && f);
+}

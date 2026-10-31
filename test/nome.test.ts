@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { casar, chave, chavesDe, indexar, slug, sugestoes } from "../src/nome.ts";
+import { casar, chave, chavesDe, familia, indexar, slug, sugestoes } from "../src/nome.ts";
 
 const cfg = JSON.parse(readFileSync(new URL("../config.json", import.meta.url), "utf8"));
 
@@ -78,4 +78,11 @@ test("sugestões só por aproximação, e só para o relatório", () => {
   assert.deepEqual(sugestoes("espn 4", [guia]), []); // curto demais: nem ESPN 2 nem ESPN 3
   assert.deepEqual(sugestoes("sabor arte", [guia]), ["sabor e arte"]);
   assert.equal(casa("Sabor Arte"), undefined); // a sugestão não casa sozinha
+});
+
+test("família de canal numerado, só para logo", () => {
+  assert.deepEqual(familia("max 10"), ["max 1", "max"]);
+  assert.deepEqual(familia("max 1"), ["max"]);
+  assert.deepEqual(familia("sportynet + 2"), ["sportynet + 1", "sportynet +"]);
+  assert.deepEqual(familia("globo"), []);
 });

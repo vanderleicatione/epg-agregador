@@ -4,7 +4,7 @@ import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { createGunzip, createGzip } from "node:zlib";
-import { casar, chave, chavesCanal, chavesDe, indexar, slug, sugestoes } from "./nome.ts";
+import { casar, chave, chavesCanal, chavesDe, familia, indexar, slug, sugestoes } from "./nome.ts";
 import { lerFuso, lerXmltv, escreverXmltv, validarXmltv, type CanalGuia, type CanalSaida, type Programa } from "./xmltv.ts";
 import { baixarPng, logoDeTexto, logosClaro, logosIptvOrg, type FontesLogo } from "./logos.ts";
 
@@ -77,6 +77,9 @@ async function main() {
     const candidatos: [string, string | undefined][] = [
       ["config", a.logo],
       ...a.chaves.flatMap((k): [string, string | undefined][] => [["config", extras.get(k)], ["Claro", claro.get(k)], ["iptv-org", iptv.get(k)], ["XMLTV", icones.get(k)?.icone]]),
+      // por último, a logo da família ("Max 10" usa a do Max 1 ou do Max); aprovado pelo usuário em 31/10, só para logo, nunca guia
+      ...(a.fonte === "opentv" ? familia(chave(a.nome)) : []).flatMap((k): [string, string | undefined][] =>
+        [["família", extras.get(k)], ["família", claro.get(k)], ["família", iptv.get(k)], ["família", icones.get(k)?.icone]]),
     ];
     let png: Buffer | undefined, logo = "texto (gerada)";
     const erros: string[] = [];
